@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmn5ew5kli4fm"
+path="res://.godot/imported/pickUpGun.wav-a24f39eb1bcd7ea23da9e07aac6ada3d.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/pickUpGun.wav"
+dest_files=["res://.godot/imported/pickUpGun.wav-a24f39eb1bcd7ea23da9e07aac6ada3d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

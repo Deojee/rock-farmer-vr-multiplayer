@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bisvqsq1608hw"
+path="res://.godot/imported/621151__ktfreesound__reload-gun-m7.wav-7f0e5892fd3fc72fcfca9ca91c3421b1.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/621151__ktfreesound__reload-gun-m7.wav"
+dest_files=["res://.godot/imported/621151__ktfreesound__reload-gun-m7.wav-7f0e5892fd3fc72fcfca9ca91c3421b1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

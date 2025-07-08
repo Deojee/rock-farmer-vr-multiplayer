@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7mf1q0j6cke4"
+path="res://.godot/imported/snakeAttack.mp3-faa66bd941a3b144b2896f211b021f9b.mp3str"
+
+[deps]
+
+source_file="res://sounds/gun noises/snakeAttack.mp3"
+dest_files=["res://.godot/imported/snakeAttack.mp3-faa66bd941a3b144b2896f211b021f9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

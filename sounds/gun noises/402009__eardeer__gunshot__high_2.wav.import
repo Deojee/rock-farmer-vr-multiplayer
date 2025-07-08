@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dg3idixml76fn"
+path="res://.godot/imported/402009__eardeer__gunshot__high_2.wav-2a6410aa0ba39a0947148dd44e5d04d1.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/402009__eardeer__gunshot__high_2.wav"
+dest_files=["res://.godot/imported/402009__eardeer__gunshot__high_2.wav-2a6410aa0ba39a0947148dd44e5d04d1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

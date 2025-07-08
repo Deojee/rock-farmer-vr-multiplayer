@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl2r5uvmd7j7u"
+path="res://.godot/imported/bulletHit.wav-8662d7f9155853a4f394a454f90ef6ae.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/bulletHit.wav"
+dest_files=["res://.godot/imported/bulletHit.wav-8662d7f9155853a4f394a454f90ef6ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

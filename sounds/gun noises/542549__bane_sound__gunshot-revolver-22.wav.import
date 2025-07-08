@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd4awgn128su7"
+path="res://.godot/imported/542549__bane_sound__gunshot-revolver-22.wav-632d1df695d03073d4f644a75fe463e0.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/542549__bane_sound__gunshot-revolver-22.wav"
+dest_files=["res://.godot/imported/542549__bane_sound__gunshot-revolver-22.wav-632d1df695d03073d4f644a75fe463e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

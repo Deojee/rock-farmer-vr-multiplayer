@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxslbghd1andb"
+path="res://.godot/imported/266915__coolguy244e__door-slam-gun-shot.mp3-e8dfebbe09b02ac3a735a5e7c86116b7.mp3str"
+
+[deps]
+
+source_file="res://sounds/gun noises/266915__coolguy244e__door-slam-gun-shot.mp3"
+dest_files=["res://.godot/imported/266915__coolguy244e__door-slam-gun-shot.mp3-e8dfebbe09b02ac3a735a5e7c86116b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nwoeytukmmrr"
+path="res://.godot/imported/56262__qk__shatter.wav-5657196004f1680c7524c76d5299f500.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/56262__qk__shatter.wav"
+dest_files=["res://.godot/imported/56262__qk__shatter.wav-5657196004f1680c7524c76d5299f500.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp11ihrv5lru6"
+path="res://.godot/imported/381569__morganpurkis__silenced-gunshot-3.wav-cffc6f461c7a0f200c1114a622e13b2c.sample"
+
+[deps]
+
+source_file="res://sounds/gun noises/381569__morganpurkis__silenced-gunshot-3.wav"
+dest_files=["res://.godot/imported/381569__morganpurkis__silenced-gunshot-3.wav-cffc6f461c7a0f200c1114a622e13b2c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
