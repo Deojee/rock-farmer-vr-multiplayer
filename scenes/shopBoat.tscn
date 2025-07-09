@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://c3jukuqf7w4kn"]
+[gd_scene load_steps=26 format=4 uid="uid://c3jukuqf7w4kn"]
 
-[ext_resource type="PackedScene" uid="uid://cpdual5q4g33g" path="res://scenes/shop_module.tscn" id="1_ekqdd"]
+[ext_resource type="PackedScene" uid="uid://cpdual5q4g33g" path="res://scenes/items/shop_module.tscn" id="1_ekqdd"]
 [ext_resource type="Texture2D" uid="uid://cvbditxuwabnq" path="res://textures/smoke128.png" id="2_aolon"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7dvf"]
@@ -381,6 +381,23 @@ point_count = 4
 offsets = PackedFloat32Array(0, 0.446903, 0.997788)
 colors = PackedColorArray(1, 1, 1, 1, 0.87, 0.87, 0.87, 0.439216, 1, 1, 1, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aolon"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.0854107, 0.14223, 0.142545, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_r185n"]
+material = SubResource("StandardMaterial3D_aolon")
+radius = 2.0
+height = 4.0
+radial_segments = 4
+rings = 2
+
 [node name="boat" type="Node3D"]
 transform = Transform3D(3, -0.000198175, 0.000173837, 0.00019811, 3, 0.00112135, -0.000173912, -0.00112134, 3, 0, 0, 0)
 
@@ -498,6 +515,29 @@ speed_scale = 0.5
 randomness = 0.2
 lifetime_randomness = 0.22
 mesh = SubResource("PlaneMesh_8r6ox")
+spread = 27.39
+gravity = Vector3(0, 6, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+damping_min = 1.0
+damping_max = 2.0
+scale_amount_min = 0.2
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_r185n")
+color_ramp = SubResource("Gradient_8r6ox")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.484407, 0.000294328, 0.874843, 0.292468, 0.942518, 0.161625, -0.824507, 0.334156, -0.456648, 0.262454, 2.60791, 0.77191)
+visible = false
+emitting = false
+amount = 24
+lifetime = 2.0
+speed_scale = 0.5
+randomness = 0.2
+lifetime_randomness = 0.22
+mesh = SubResource("SphereMesh_r185n")
 spread = 27.39
 gravity = Vector3(0, 6, 0)
 initial_velocity_min = 3.0

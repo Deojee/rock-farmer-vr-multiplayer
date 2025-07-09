@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c07mrgk1hi7x8"]
 
-[ext_resource type="Script" path="res://scripts/vr_player.gd" id="1_262nw"]
-[ext_resource type="PackedScene" uid="uid://cwv6evin4v2gm" path="res://scenes/vrHand.tscn" id="2_36puc"]
+[ext_resource type="Script" uid="uid://dfiffraoqkd74" path="res://scripts/player/vr_player.gd" id="1_262nw"]
+[ext_resource type="PackedScene" uid="uid://cwv6evin4v2gm" path="res://scenes/items/vrHand.tscn" id="2_36puc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yf1h0"]
 

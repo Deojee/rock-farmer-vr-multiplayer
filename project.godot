@@ -100,3 +100,8 @@ mouseRight={
 
 renderer/rendering_method="mobile"
 mesh_lod/lod_change/threshold_pixels=10.0
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
