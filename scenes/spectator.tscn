@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf77xa50rbjkw"]
+
+[ext_resource type="Script" uid="uid://bmgjtbnimli1a" path="res://scripts/spectatorCam.gd" id="1_jjbhc"]
+
+[node name="spectator" type="Node3D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_jjbhc")
+cam = NodePath("cam")
+
+[node name="cam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.857167, 0.515038, 0, -0.515038, 0.857167, 0, 0, 0)

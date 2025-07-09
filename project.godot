@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Rock Farmer VR"
+run/main_scene="uid://j6pjv1wc5jy4"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -81,6 +82,11 @@ mouseRight={
 ]
 }
 
+[physics]
+
+3d/default_gravity=0.98
+
 [rendering]
 
 renderer/rendering_method="mobile"
+mesh_lod/lod_change/threshold_pixels=10.0

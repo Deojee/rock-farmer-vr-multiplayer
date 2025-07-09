@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy1p2q4kubu2f"]
+
+[ext_resource type="Script" uid="uid://dw6bh5dbwq3jp" path="res://scripts/keyboard_player.gd" id="1_5m1pa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3yvhr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5m1pa"]
+
+[node name="keyboardPlayer" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_5m1pa")
+cam = NodePath("Camera3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3yvhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5m1pa")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957913, 0)
