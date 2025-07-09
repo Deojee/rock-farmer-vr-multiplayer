@@ -13,7 +13,7 @@ config_version=5
 config/name="Rock Farmer VR"
 run/main_scene="uid://j6pjv1wc5jy4"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://textures/icon.svg"
 
 [dotnet]
 
