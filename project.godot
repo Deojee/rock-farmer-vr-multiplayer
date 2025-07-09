@@ -82,9 +82,19 @@ mouseRight={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="everything"
+3d_physics/layer_2="player"
+3d_physics/layer_3="ground"
+3d_physics/layer_4="enemies"
+3d_physics/layer_5="items"
+
 [physics]
 
-3d/default_gravity=0.98
+3d/run_on_separate_thread=true
+3d/physics_engine="Jolt Physics"
+3d/default_gravity=9.0
 
 [rendering]
 

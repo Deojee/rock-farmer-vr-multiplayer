@@ -6,7 +6,7 @@ extends CharacterBody3D
 const SPEED = 6
 const SPRINT_SPEED = 9
 const ACCEL = 5.0
-const JUMP_FORCE = 5000
+const JUMP_FORCE = 7
 const JUMP_CANCEL_SPEED = 20
 
 
@@ -23,7 +23,7 @@ var pause = false
 func _process(delta: float) -> void:
 	
 	
-	velocity += get_gravity()
+	velocity.y -= 10 * delta #get_gravity()
 	
 	if Input.is_action_just_pressed("pause"):
 		
@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	# Transform input direction from local to global space using the basis
 	var target : Vector3 = (input_dir.y * basis.z + input_dir.x * basis.x).normalized()
 	
-	print(target)
 	
 	if pause:
 		target = Vector3.ZERO

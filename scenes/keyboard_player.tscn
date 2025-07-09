@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy1p2q4kubu2f"]
+[gd_scene load_steps=6 format=3 uid="uid://dy1p2q4kubu2f"]
 
 [ext_resource type="Script" uid="uid://dw6bh5dbwq3jp" path="res://scripts/keyboard_player.gd" id="1_5m1pa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3yvhr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5m1pa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m1pa"]
+albedo_color = Color(0.345098, 0.333333, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_5m1pa"]
+material = SubResource("StandardMaterial3D_5m1pa")
 
 [node name="keyboardPlayer" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_5m1pa")
@@ -18,3 +24,7 @@ shape = SubResource("CapsuleShape3D_5m1pa")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957913, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_5m1pa")
