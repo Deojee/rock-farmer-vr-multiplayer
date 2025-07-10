@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c07mrgk1hi7x8"]
+[gd_scene load_steps=8 format=3 uid="uid://c07mrgk1hi7x8"]
 
 [ext_resource type="Script" uid="uid://dfiffraoqkd74" path="res://scripts/player/vr_player.gd" id="1_262nw"]
 [ext_resource type="PackedScene" uid="uid://cwv6evin4v2gm" path="res://scenes/items/vrHand.tscn" id="2_36puc"]
@@ -17,16 +17,6 @@ material = SubResource("StandardMaterial3D_fu30p")
 top_radius = 0.35
 bottom_radius = 0.0
 height = 1.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8scmw"]
-albedo_color = Color(0.404511, 0.404511, 0.404511, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xypjm"]
-material = SubResource("StandardMaterial3D_8scmw")
-top_radius = 0.06
-bottom_radius = 0.06
-radial_segments = 6
-rings = 1
 
 [sub_resource type="TorusMesh" id="TorusMesh_k8qoa"]
 inner_radius = 0.052
@@ -59,13 +49,6 @@ shape = SubResource("CapsuleShape3D_yf1h0")
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.356692, 0)
 mesh = SubResource("CylinderMesh_0w4ch")
-
-[node name="grappleLine" type="Node3D" parent="."]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="grappleLine"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1)
-mesh = SubResource("CylinderMesh_xypjm")
-skeleton = NodePath("../..")
 
 [node name="pointer" type="MeshInstance3D" parent="."]
 visible = false

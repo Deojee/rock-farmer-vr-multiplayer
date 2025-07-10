@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cpwq3mh8eq0sq"]
+[gd_scene load_steps=2 format=3 uid="uid://cpwq3mh8eq0sq"]
+
+[ext_resource type="Script" uid="uid://c8m56ift1yr4v" path="res://scripts/items/holdableItem.gd" id="1_47vtb"]
 
 [node name="BaseTool" type="RigidBody3D"]
+script = ExtResource("1_47vtb")
