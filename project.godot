@@ -8,6 +8,10 @@
 
 config_version=5
 
+[GD-Sync]
+
+version="0.10"
+
 [application]
 
 config/name="Rock Farmer VR"
@@ -15,13 +19,17 @@ run/main_scene="uid://j6pjv1wc5jy4"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://textures/icon.svg"
 
+[autoload]
+
+GDSync="*res://addons/GD-Sync/MultiplayerClient.gd"
+
 [dotnet]
 
 project/assembly_name="Rock Farmer VR"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/prototype_mini_bundle/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg", "res://addons/prototype_mini_bundle/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [input]
 

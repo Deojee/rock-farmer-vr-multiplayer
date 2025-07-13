@@ -8,9 +8,12 @@ radius = 1.5
 
 [node name="itemHolder" type="Node3D" groups=["Persist"]]
 script = ExtResource("1_k0f2q")
+isVr = null
 linear_spring_stiffness = 600.0
+linear_spring_damping = null
 max_linear_force = 2000.0
 angular_spring_stiffness = 600.0
+angular_spring_damping = null
 max_angular_force = 2000.0
 
 [node name="itemsDetect" type="Area3D" parent="."]

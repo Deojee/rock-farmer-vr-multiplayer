@@ -25,11 +25,11 @@ func _physics_process(delta):
 	
 	
 	var closestItem = getClosestItem()
-	print(closestItem)
+	#print(closestItem)
 	
 	#var holdPressed = Input.is_action_pressed("right_click") or (xrController and xrController.get_float("grip"))
 	
-	var shootTeleport = Input.is_action_just_pressed("mouseRight") or (xrController and xrController.is_button_pressed("trigger_click"))
+	var useJustPressed : bool = Input.is_action_just_pressed("mouseRight") or (xrController and xrController.is_button_pressed("trigger_click"))
 	
 	
 	
@@ -53,8 +53,6 @@ func _physics_process(delta):
 			heldObject = null
 	
 	
-	
-	
 	if heldObject:
 		
 		
@@ -66,7 +64,7 @@ func _physics_process(delta):
 			elif xrController:#checks for controller here
 				pass
 	
-	vrShootPressedLastFrame = shootTeleport
+	vrShootPressedLastFrame = useJustPressed
 	
 
 func pickUp(item):
@@ -124,30 +122,26 @@ func handleHeldItem(delta):
 		heldObject = null
 		
 	
-	
 	#the handle is the position and rotation in space the object is held by
 	var handle : Transform3D = heldObject.global_transform
 	handle = handle.translated_local(originalOffset)
 	handle.basis *= originialRotation
 	
-	#print(originalOffset)
-	#handle.basis =  handle.basis * originialRotation
-	
-	if heldObject is holdableItem:
+	if heldObject is holdableItem: #if it has a handle we ignore it's starting rotation and position
 		handle = heldObject.handle.global_transform
 	
-	var target_transform: Transform3D = global_transform
-	var current_transform: Transform3D = handle
-	var rotation_difference: Basis = (target_transform.basis * current_transform.basis.inverse())
+	var target_transform : Transform3D = global_transform
+	var current_transform : Transform3D = handle
+	var rotation_difference : Basis = (target_transform.basis * current_transform.basis.inverse())
 
-	var position_difference:Vector3 = target_transform.origin - current_transform.origin
+	var position_difference : Vector3 = target_transform.origin - current_transform.origin
 	
-	if position_difference.length_squared() > 1.0:
-		heldObject.global_position = target_transform.origin
-	else:
-		var force: Vector3 = hookes_law(position_difference, heldObject.linear_velocity, linear_spring_stiffness, linear_spring_damping)
-		force = force.limit_length(max_linear_force)
-		heldObject.linear_velocity += (force * delta)
+	#if position_difference.length_squared() > 1.0:
+		#heldObject.global_position = target_transform.origin
+	#else:
+	var force: Vector3 = hookes_law(position_difference, heldObject.linear_velocity, linear_spring_stiffness, linear_spring_damping)
+	force = force.limit_length(max_linear_force)
+	heldObject.linear_velocity += (force * delta)
 	
 	var torque = hookes_law(rotation_difference.get_euler(), heldObject.angular_velocity, angular_spring_stiffness, angular_spring_damping)
 	torque = torque.limit_length(max_angular_force)

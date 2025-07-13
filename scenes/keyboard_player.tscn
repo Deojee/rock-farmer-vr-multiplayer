@@ -32,3 +32,6 @@ mesh = SubResource("PrismMesh_5m1pa")
 
 [node name="itemHolder" parent="Camera3D" instance=ExtResource("2_loucl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2272)
+isVr = null
+linear_spring_damping = null
+angular_spring_damping = null

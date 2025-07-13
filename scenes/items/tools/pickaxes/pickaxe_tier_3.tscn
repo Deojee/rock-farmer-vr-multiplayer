@@ -93,33 +93,33 @@ script = ExtResource("2_v2vp1")
 handle = NodePath("handle")
 
 [node name="handle" type="Marker3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21625, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.233951, 0.0662446)
 
 [node name="handleShape1" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.985838, 0.167698, 0, -0.167698, 0.985838, 0, 0.884213, -0.229376)
+transform = Transform3D(0.4, 0, 0, 0, 0.394335, 0.0670792, 0, -0.0670792, 0.394335, 0, 0.101136, -0.0255058)
 shape = SubResource("BoxShape3D_gdrte")
 
 [node name="handleShape2" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.966138, -0.258027, 0, 0.258027, 0.966138, 0, 4.0995, -0.00106503)
+transform = Transform3D(0.4, 0, 0, 0, 0.386455, -0.103211, 0, 0.103211, 0.386455, 0, 1.38725, 0.0658186)
 shape = SubResource("BoxShape3D_4q4tc")
 
 [node name="handleShape3" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.99648, 0.0838344, 0, -0.0838344, 0.99648, 0, 6.8891, 0.374426)
+transform = Transform3D(0.4, 0, 0, 0, 0.398592, 0.0335338, 0, -0.0335338, 0.398592, 0, 2.50309, 0.216015)
 shape = SubResource("BoxShape3D_ra4dy")
 
 [node name="headCenter" type="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3726, 0.127676)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.69649, 0.117315)
 shape = SubResource("BoxShape3D_fyuuv")
 
 [node name="negZTip" type="CollisionShape3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.868052, 0.496474, 0, -0.496474, 0.868052, 0, 7.00055, -2.21494)
+transform = Transform3D(0.4, 0, 0, 0, 0.347221, 0.19859, 0, -0.19859, 0.347221, 0, 2.54767, -0.819731)
 shape = SubResource("BoxShape3D_36pkb")
 
 [node name="posZTip" type="CollisionShape3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 0.867765, -0.496974, 0, 0.496974, 0.867765, 0, 6.84871, 2.82654)
+transform = Transform3D(0.4, 0, 0, 0, 0.347106, -0.19879, 0, 0.19879, 0.347106, 0, 2.48694, 1.19686)
 shape = SubResource("BoxShape3D_36pkb")
 
 [node name="T3 pickaxe" type="MeshInstance3D" parent="." index="7"]
-transform = Transform3D(0.52697, 0, 0, 0, 0.52697, 0, 0, 0, 0.52697, 0, 0, 0)
+transform = Transform3D(0.210788, 0, 0, 0, 0.210788, 0, 0, 0, 0.210788, 0, -0.252549, 0.0662446)
 mesh = SubResource("ArrayMesh_jtr1o")
 skeleton = NodePath("")
