@@ -25,6 +25,7 @@ func _physics_process(delta):
 	
 	
 	var closestItem = getClosestItem()
+	print(closestItem)
 	
 	#var holdPressed = Input.is_action_pressed("right_click") or (xrController and xrController.get_float("grip"))
 	
@@ -55,6 +56,8 @@ func _physics_process(delta):
 	
 	
 	if heldObject:
+		
+		
 		handleHeldItem(delta)
 		
 		if heldObject is holdableItem:

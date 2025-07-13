@@ -356,8 +356,8 @@ radius = 0.751953
 size = Vector3(1, 0.606934, 2.7287)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r185n"]
+render_priority = 10
 transparency = 1
-no_depth_test = true
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_aolon")
 billboard_mode = 3

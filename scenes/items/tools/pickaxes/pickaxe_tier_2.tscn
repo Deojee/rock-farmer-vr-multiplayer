@@ -86,11 +86,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4jq0k")
 
-[node name="PickaxeTier2" instance=ExtResource("1_36pkb")]
+[node name="PickaxeTier2" node_paths=PackedStringArray("handle") instance=ExtResource("1_36pkb")]
+collision_layer = 17
+collision_mask = 20
 script = ExtResource("2_4q4tc")
+handle = NodePath("handle")
 
 [node name="handle" type="Marker3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21625, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23583, -0.145133)
 
 [node name="handleShape1" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.985838, 0.167698, 0, -0.167698, 0.985838, 0, 0.884213, -0.229376)
