@@ -25,16 +25,6 @@ func _physics_process(delta):
 	
 	
 	
-	if Input.is_action_just_pressed("e"):
-		
-		if grappleCast.is_colliding():
-			toggleGrapple(grappleCast.get_collision_point())
-		else:
-			toggleGrapple(null)
-		
-	
-	if Input.is_action_pressed("shift"):
-		reel(delta)
 	
 	super._physics_process(delta)
 	
