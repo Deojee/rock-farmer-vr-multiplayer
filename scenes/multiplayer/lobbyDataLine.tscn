@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://lcfmv4nke2dx"]
+
+[ext_resource type="Script" uid="uid://bubgulhk021qe" path="res://scripts/multiplayer/lobby_data_line.gd" id="1_a7g8h"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lgrfy"]
+color = Color(0.851769, 0.851769, 0.851769, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 5
+vertical = true
+
+[node name="Line" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1_a7g8h")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_lgrfy")
+
+[node name="Address" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Address"
+autowrap_mode = 3
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_lgrfy")
+
+[node name="Mode" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gamemode"
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_lgrfy")
+
+[node name="Players" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Players"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

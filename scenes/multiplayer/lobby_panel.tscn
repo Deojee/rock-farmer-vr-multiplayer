@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2joq2xdeks6k"]
+
+[ext_resource type="Script" uid="uid://dnicutn76osyk" path="res://scripts/multiplayer/lobby_panel.gd" id="1_avjmg"]
+[ext_resource type="PackedScene" uid="uid://dvriu1uuergvg" path="res://scenes/multiplayer/censored_name_line.tscn" id="2_o8027"]
+[ext_resource type="PackedScene" uid="uid://lcfmv4nke2dx" path="res://scenes/multiplayer/lobbyDataLine.tscn" id="2_rou10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aaqd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgrfy"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_6aaqd"]
+default_font_size = 40
+Label/font_sizes/font_size = 32
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_6aaqd")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_lgrfy")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6aaqd"]
+color = Color(1, 1, 1, 1)
+thickness = 10
+
+[node name="lobbyPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_6aaqd")
+script = ExtResource("1_avjmg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.000617474
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="backButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="playerNameLine" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_o8027")]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Your name here"
+
+[node name="refresh" type="Button" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Refresh"
+
+[node name="debugText" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 80
+theme_override_styles/separator = SubResource("StyleBoxLine_6aaqd")
+
+[node name="Line" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_rou10")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxLine_6aaqd")
+
+[node name="Vbox lobbies" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="nameValidityChanged" from="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/playerNameLine" to="." method="_on_player_name_line_name_validity_changed"]
+[connection signal="pressed" from="Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/refresh" to="." method="_on_refresh_pressed"]

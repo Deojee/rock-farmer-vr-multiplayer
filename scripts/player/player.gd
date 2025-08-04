@@ -10,11 +10,11 @@ var UP = Vector3.UP
 
 func _ready():
 	
-	if isVr != Globals.isVrMode:
+	if isVr != VRGlobals.isVrMode:
 		queue_free()
 		return
 	
-	Globals.player = self
+	VRGlobals.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 

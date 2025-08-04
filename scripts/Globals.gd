@@ -1,5 +1,5 @@
 extends Node
-class_name Globals
+class_name VRGlobals
 
 static var INSTANCE : Globals
 
