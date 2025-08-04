@@ -1,7 +1,7 @@
 extends Node
 class_name VRGlobals
 
-static var INSTANCE : Globals
+static var INSTANCE : VRGlobals
 
 static var isVrMode = true
 
@@ -16,7 +16,6 @@ func _ready():
 	if !isVrMode:
 		return
 	
-	
 	#print(XRServer.get_interfaces())
 	
 	xr_interface = XRServer.get_interface(1)
@@ -29,18 +28,12 @@ func _ready():
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
 		
-		
-		
 		#Engine.set_physics_ticks_per_second(DisplayServer.screen_get_refresh_rate())
 
 	else:
 		isVrMode = false
 		print("OpenXR not initialized, please check if your headset is connected")
 	
-	
-	
-	
-
 func _physics_process(delta):
 	
 	#Engine.time_scale *= 1 + (Engine.physics_ticks_per_second * delta)/Engine.time_scale * 0.03

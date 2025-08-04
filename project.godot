@@ -15,15 +15,15 @@ version="0.10"
 [application]
 
 config/name="Rock Farmer VR"
-run/main_scene="uid://j6pjv1wc5jy4"
+run/main_scene="uid://d0j3yao8getw6"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://textures/icon.svg"
 
 [autoload]
 
+Globals="*res://scripts/multiplayer/Globals.gd"
 LobbySyncer="*res://scripts/multiplayer/LobbyListSyncer.gd"
 MultiplayerHostClientHandler="*res://scripts/multiplayer/multiplayerHostClientHandler.gd"
-Globals="*res://scripts/multiplayer/Globals.gd"
 
 [dotnet]
 
@@ -99,6 +99,7 @@ mouseRight={
 3d_physics/layer_3="ground"
 3d_physics/layer_4="enemies"
 3d_physics/layer_5="items"
+3d_physics/layer_10="ui"
 
 [physics]
 

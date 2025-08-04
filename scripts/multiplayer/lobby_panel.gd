@@ -2,7 +2,7 @@ extends Control
 
 class_name Lobby_panel
 
-var lobbyLineScene = preload("res://scenes/lobbyDataLine.tscn")
+var lobbyLineScene = preload("res://scenes/multiplayer/lobbyDataLine.tscn")
 
 var playerNameLine : CensoredNameLine
 var debugText : Label
@@ -45,7 +45,7 @@ func _onLobbiesUpdated(lobbies : Array):
 	pass
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/multiplayer/main_menu.tscn")
 	pass # Replace with function body.
 
 

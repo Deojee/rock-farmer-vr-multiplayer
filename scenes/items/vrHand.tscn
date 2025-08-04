@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwv6evin4v2gm"]
+[gd_scene load_steps=9 format=3 uid="uid://cwv6evin4v2gm"]
 
 [ext_resource type="Script" uid="uid://b53alle445kvc" path="res://scripts/player/vrHand.gd" id="1_87nh3"]
 [ext_resource type="PackedScene" uid="uid://cii51k8xqbcds" path="res://scenes/items/itemHolder.tscn" id="2_wtctk"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_cnjjt"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_hvqqe"]
+[ext_resource type="PackedScene" uid="uid://q0agfrs1q0f7" path="res://scenes/multiplayer/pauseMenu.tscn" id="5_f5fbu"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_3n2yb"]
 inner_radius = 0.052
@@ -38,7 +41,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.106911, -0.0835682)
 mesh = SubResource("CylinderMesh_mgdhx")
 
 [node name="itemHolder" parent="." instance=ExtResource("2_wtctk")]
+visible = false
 script = null
+
+[node name="FunctionPointer" parent="." instance=ExtResource("3_cnjjt")]
+show_laser = 2
+laser_length = 1
+show_target = true
+collision_mask = 5243392
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("4_hvqqe")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.35124, 0)
+scene = ExtResource("5_f5fbu")
+viewport_size = Vector2(1200, 800)
+scene_properties_keys = PackedStringArray()
 
 [connection signal="button_pressed" from="." to="." method="_on_button_pressed"]
 [connection signal="button_released" from="." to="." method="_on_button_released"]
