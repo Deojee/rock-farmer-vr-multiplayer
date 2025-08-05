@@ -1,11 +1,12 @@
 extends Node3D
-
 class_name World
 
 var keyboardPlayerScene : String = "res://scenes/keyboard_player.tscn"
 var vrPlayerScene : String = "res://scenes/vr_player.tscn"
 
 @export var playerSpawnPoint : Marker3D 
+
+var terrain3D : Terrain3D
 
 var spawnSyncNode : Node
 
@@ -14,6 +15,7 @@ var playerData : Dictionary = {}
 
 func _ready() -> void:
 	Globals.world = self
+	terrain3D = %Terrain3D
 	
 	spawnSyncNode = $multiplayerSync
 	set_multiplayer_authority(Globals.SERVER_UNIQUE_ID)
@@ -57,24 +59,21 @@ func _peer_disconnected(id : int):
 @rpc("any_peer", "reliable")
 func add_player(id,isVr):
 	
-	
-	var customSpawnData : CustomSpawnData
+	var customSpawnData : CustomSpawnData = CustomSpawnData.new()
 	
 	if isVr:
-		customSpawnData.scenePath = load(vrPlayerScene).instantiate()
+		customSpawnData.scenePath = vrPlayerScene
 	else:
-		customSpawnData.scenePath = load(keyboardPlayerScene).instantiate()
+		customSpawnData.scenePath = keyboardPlayerScene
 	
 	customSpawnData.authorityID = id
 	customSpawnData.propertiesToSet = {
 		"name":str(id),
-		"global_position":playerSpawnPoint.global_position,
+		"position":playerSpawnPoint.position,
 	}
 	
-	
-	
-	
 	Globals.spawner.askServerToSpawn(customSpawnData)
+	
 	
 
 #only called by server

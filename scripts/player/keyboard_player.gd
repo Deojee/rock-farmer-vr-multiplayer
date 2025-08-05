@@ -21,6 +21,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	
 	if is_multiplayer_authority():
+		super._ready()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
@@ -95,7 +96,9 @@ func _setup(myId):
 	if is_multiplayer_authority():
 		$nametag.text = Globals.nameTag + "\nID:" + str(myId)
 		cam.current = true
+		Globals.world.terrain3D.set_camera(cam)
 	
+	Globals.world.playerData[myId] = [self]
 	
 
 var sensX = 0.001

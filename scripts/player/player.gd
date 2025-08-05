@@ -10,12 +10,7 @@ var UP = Vector3.UP
 
 func _ready():
 	
-	if isVr != VRGlobals.isVrMode:
-		queue_free()
-		return
-	
 	VRGlobals.player = self
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
 func _physics_process(delta):
