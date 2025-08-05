@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	startLobbyButton.disabled = !(lobbyNameLine.isValid and playerNameLine.isValid)
 	debugText.text = MultiplayerHostClientHandler.debugText
 	
-	pass
+	
 
 """
 var playerName = %nameTag.text
@@ -47,6 +47,7 @@ func _on_player_name_line_name_validity_changed(isValid : bool, playerName : Str
 	if isValid:
 		Globals.nameTag = playerName
 	
+
 
 func _on_lobby_name_line_name_validity_changed(isValid : bool, lobbyName : String) -> void:
 	
@@ -69,5 +70,5 @@ func _on_port_line_value_changed(value: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/multiplayer/main_menu.tscn")
 	pass # Replace with function body.

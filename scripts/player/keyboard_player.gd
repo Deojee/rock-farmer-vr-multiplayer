@@ -1,29 +1,35 @@
-extends CharacterBody3D
+extends Player
 
 
 @export var cam : Camera3D
 
-const SPEED = 6
+
 const SPRINT_SPEED = 9
 const ACCEL = 5.0
 const JUMP_FORCE = 7
 const JUMP_CANCEL_SPEED = 20
 
 
-static var INSTANCE
-
 var is_jumping = false
 
+func _enter_tree() -> void:
+	
+	print("enter tree called ", multiplayer.get_unique_id())
+	_setup(int(name))
+	
+
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	INSTANCE = self
+	
+	if is_multiplayer_authority():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 var pause = false
 
 func _process(delta: float) -> void:
 	
-	
-	velocity.y -= 10 * delta #get_gravity()
+	if !is_multiplayer_authority():
+		return
 	
 	if Input.is_action_just_pressed("pause"):
 		
@@ -39,7 +45,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	
+	if !is_multiplayer_authority():
+		return
 	
 	# Get input direction vector in local space
 	var input_dir = -Vector2(
@@ -76,19 +83,27 @@ func _physics_process(delta: float) -> void:
 	
 	#position += velocity * delta * (1.0/Engine.time_scale)
 	
-	move_and_slide()
-	
-	
+	super._physics_process(delta)
 	
 
-
+func _setup(myId):
+	
+	print("setting up ", myId)
+	multiplayer.set_multiplayer_peer(Globals.peer)
+	set_multiplayer_authority(myId)
+	
+	if is_multiplayer_authority():
+		$nametag.text = Globals.nameTag + "\nID:" + str(myId)
+		cam.current = true
+	
+	
 
 var sensX = 0.001
 var sensY = 0.001
 
 func _input(event: InputEvent) -> void:
 	
-	if pause:
+	if pause or !is_multiplayer_authority():
 		return
 	
 	if event is InputEventMouseMotion:

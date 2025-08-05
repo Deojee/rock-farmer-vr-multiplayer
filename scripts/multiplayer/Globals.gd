@@ -12,7 +12,8 @@ var multiplayerId := -1
 var is_server : bool
 var peer : ENetMultiplayerPeer
 var myAddress := ""
-var spawner : MultiplayerSpawner #set by the spawner.
+var spawner : CustomSpawner #set by the spawner.
+var world : World 
 
 const SERVER_UNIQUE_ID = 1
 

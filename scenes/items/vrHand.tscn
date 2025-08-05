@@ -41,7 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.106911, -0.0835682)
 mesh = SubResource("CylinderMesh_mgdhx")
 
 [node name="itemHolder" parent="." instance=ExtResource("2_wtctk")]
-visible = false
 script = null
 
 [node name="FunctionPointer" parent="." instance=ExtResource("3_cnjjt")]

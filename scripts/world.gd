@@ -1,6 +1,11 @@
 extends Node3D
 
-var playerScene : String = "res://scenes/simplePlayer.tscn"
+class_name World
+
+var keyboardPlayerScene : String = "res://scenes/keyboard_player.tscn"
+var vrPlayerScene : String = "res://scenes/vr_player.tscn"
+
+@export var playerSpawnPoint : Marker3D 
 
 var spawnSyncNode : Node
 
@@ -8,25 +13,41 @@ var spawnSyncNode : Node
 var playerData : Dictionary = {}
 
 func _ready() -> void:
-	spawnSyncNode = $syncNodeHolder
+	Globals.world = self
+	
+	spawnSyncNode = $multiplayerSync
 	set_multiplayer_authority(Globals.SERVER_UNIQUE_ID)
 	
 	if Globals.is_server:
 		add_player(multiplayer.get_unique_id(),VRGlobals.isVrMode)
-		
+	else:
+		print("Asking for avatar ",multiplayer.get_unique_id())
+		rpc_id(
+			Globals.SERVER_UNIQUE_ID,
+			"add_player",multiplayer.get_unique_id(),
+			VRGlobals.isVrMode
+			)
 	
 	multiplayer.connected_to_server.connect(_connected_to_server)
+	multiplayer.connection_failed.connect(_connection_failed)
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
 	
+	
+	
+
+func _connection_failed():
+	
+	print("connection failed ",multiplayer.get_unique_id())
+	
 
 func _connected_to_server():
-	rpc_id(Globals.SERVER_UNIQUE_ID,"add_player",multiplayer.get_unique_id(),VRGlobals.isVrMode)
 	pass
 
 func _peer_connected(id : int):
-	if multiplayer.is_server() and id == Globals.SERVER_UNIQUE_ID:
-		add_player(id, VRGlobals.isVrMode)
+	if multiplayer.is_server():
+		print("Peer Connected")
+	pass
 
 func _peer_disconnected(id : int):
 	if multiplayer.is_server():
@@ -35,11 +56,25 @@ func _peer_disconnected(id : int):
 #only called by server
 @rpc("any_peer", "reliable")
 func add_player(id,isVr):
-	var newPlayer = load(playerScene).instantiate()
-	newPlayer.name = str(id)
 	
-	spawnSyncNode.add_child(newPlayer)
-	playerData[id] = [newPlayer]
+	
+	var customSpawnData : CustomSpawnData
+	
+	if isVr:
+		customSpawnData.scenePath = load(vrPlayerScene).instantiate()
+	else:
+		customSpawnData.scenePath = load(keyboardPlayerScene).instantiate()
+	
+	customSpawnData.authorityID = id
+	customSpawnData.propertiesToSet = {
+		"name":str(id),
+		"global_position":playerSpawnPoint.global_position,
+	}
+	
+	
+	
+	
+	Globals.spawner.askServerToSpawn(customSpawnData)
 	
 
 #only called by server

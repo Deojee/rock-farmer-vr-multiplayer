@@ -11,7 +11,6 @@ func _physics_process(delta):
 	
 	pass
 
-@onready var grappleCast : RayCast3D = $grappleCast
 
 func _on_button_pressed(inputName):
 	

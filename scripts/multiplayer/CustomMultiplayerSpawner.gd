@@ -1,4 +1,5 @@
 extends MultiplayerSpawner
+class_name CustomSpawner
 
 func _ready() -> void:
 	Globals.spawner = self

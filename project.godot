@@ -24,6 +24,7 @@ config/icon="res://textures/icon.svg"
 Globals="*res://scripts/multiplayer/Globals.gd"
 LobbySyncer="*res://scripts/multiplayer/LobbyListSyncer.gd"
 MultiplayerHostClientHandler="*res://scripts/multiplayer/multiplayerHostClientHandler.gd"
+VRGlobals="*res://scripts/VRGlobals.gd"
 
 [dotnet]
 
