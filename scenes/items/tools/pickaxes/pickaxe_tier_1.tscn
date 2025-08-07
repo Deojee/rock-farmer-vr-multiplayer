@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b6x5pcdcryyq6"]
+[gd_scene load_steps=11 format=4 uid="uid://b6x5pcdcryyq6"]
 
 [ext_resource type="PackedScene" uid="uid://cpwq3mh8eq0sq" path="res://scenes/items/baseTool.tscn" id="1_bddsy"]
 [ext_resource type="Script" uid="uid://bvx24s0pyvyaw" path="res://scripts/items/tools/pickaxe.gd" id="2_gdrte"]
@@ -79,6 +79,20 @@ size = Vector3(0.5, 0.8, 3.82)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0u77r"]
 size = Vector3(0.3, 0.666, 1.985)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gdrte"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:scale")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:sleeping")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
 [node name="PickaxeTier1" node_paths=PackedStringArray("handle") instance=ExtResource("1_bddsy")]
 collision_layer = 17
 collision_mask = 20
@@ -86,25 +100,28 @@ script = ExtResource("2_gdrte")
 handle = NodePath("handle")
 
 [node name="T1 pickaxe" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(1.29714e-07, 0, -0.362708, 0, 0.362708, 0, 0.362708, 0, 1.29714e-07, 0, 0, 0)
+transform = Transform3D(5.18137e-08, 0, -0.144882, 0, 0.144882, 0, 0.144882, 0, 5.18137e-08, 0.000871658, -0.386996, -0.0110778)
 mesh = SubResource("ArrayMesh_qbbyx")
 skeleton = NodePath("")
 
 [node name="handle" type="Marker3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21625, 0)
+transform = Transform3D(0.399445, 0, 0, 0, 0.399445, 0, 0, 0, 0.399445, 0.000871658, 0.0988297, -0.0110778)
 
 [node name="handleShape" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06619, 0)
+transform = Transform3D(0.399445, 0, 0, 0, 0.399445, 0, 0, 0, 0.399445, 0.000871658, 0.83778, -0.0110778)
 shape = SubResource("BoxShape3D_gdrte")
 
 [node name="headCenter" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.12466, -0.0452763)
+transform = Transform3D(0.399445, 0, 0, 0, 0.399445, 0, 0, 0, 0.399445, 0.000871658, 2.05947, -0.0291632)
 shape = SubResource("BoxShape3D_oiu51")
 
 [node name="negZTip" type="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.868052, 0.496474, 0, -0.496474, 0.868052, 0, 5.78874, -2.38789)
+transform = Transform3D(0.399445, 0, 0, 0, 0.346739, 0.198314, 0, -0.198314, 0.346739, 0.000871658, 1.92529, -0.96491)
 shape = SubResource("BoxShape3D_0u77r")
 
 [node name="posZTip" type="CollisionShape3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.867765, -0.496974, 0, 0.496974, 0.867765, 0, 5.789, 2.388)
+transform = Transform3D(0.399445, 0, 0, 0, 0.346625, -0.198514, 0, 0.198514, 0.346625, 0.000871658, 1.92539, 0.942798)
 shape = SubResource("BoxShape3D_0u77r")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
+replication_config = SubResource("SceneReplicationConfig_gdrte")

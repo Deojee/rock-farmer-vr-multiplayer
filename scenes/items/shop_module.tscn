@@ -1,4 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpdual5q4g33g"]
+[gd_scene load_steps=19 format=4 uid="uid://cpdual5q4g33g"]
+
+[ext_resource type="Script" uid="uid://wghw4giotklr" path="res://scripts/shop_module.gd" id="1_5dc1g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlutb"]
 resource_name = "button"
@@ -282,6 +284,20 @@ tracks/3/path = NodePath("Armature_001/Skeleton3D:Bone.002")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 2.61306e-07, -3.4615e-08, -0.737277, 0.67559)
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dispense"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vmwif"]
 _data = {
@@ -294,7 +310,11 @@ _data = {
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3m44o"]
 noise = SubResource("FastNoiseLite_vbla5")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5dc1g"]
+radius = 0.3
+
 [node name="shopModule" type="Node3D"]
+script = ExtResource("1_5dc1g")
 
 [node name="Armature_001" type="Node3D" parent="."]
 
@@ -310,14 +330,14 @@ bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(-0.62668, -0.779277, -4.50808e-07, 0.779277, -0.626679, 2.11823e-07, -4.47581e-07, -2.18559e-07, 1, -0.574119, 1.3994, 2.38419e-07)
 bones/1/enabled = true
-bones/1/position = Vector3(-0.57412, 1.3994, 1.88022e-07)
-bones/1/rotation = Quaternion(-2.49039e-07, -1.86712e-09, 0.901854, 0.432042)
+bones/1/position = Vector3(-0.436121, 1.53366, -0.00319228)
+bones/1/rotation = Quaternion(-2.49039e-07, -1.86711e-09, 0.901854, 0.432042)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(-0.0871563, 0.996195, -4.32081e-07, -0.996195, -0.0871563, -3.0203e-07, -3.38539e-07, 4.04113e-07, 1, 0.388205, 0.715205, 8.86653e-07)
 bones/2/enabled = true
-bones/2/position = Vector3(0.388205, 0.715205, 3.36528e-07)
+bones/2/position = Vector3(0.353163, 0.714729, 3.17051e-07)
 bones/2/rotation = Quaternion(2.61306e-07, -3.4615e-08, -0.737277, 0.67559)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "button"
@@ -343,7 +363,7 @@ bones/5/rotation = Quaternion(0.49717, 0.502174, 0.503362, -0.497263)
 bones/5/scale = Vector3(0.0966129, 0.0966129, 0.0966129)
 
 [node name="button" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(-0.17523, -1.51153, -0.811714, -0.123967, 2.25284, -0.54321, 0.976692, 0.0147548, -0.214578, -1.49239, 1.41693, -0.0260486)
+transform = Transform3D(-0.17523, -1.51153, -0.811714, -0.123967, 2.25284, -0.54321, 0.976692, 0.0147548, -0.214578, -1.33206, 1.52418, -0.0292411)
 bone_name = "button"
 bone_idx = 3
 
@@ -352,7 +372,7 @@ mesh = SubResource("ArrayMesh_vbla5")
 skeleton = NodePath("")
 
 [node name="item chute" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(0.819153, -0.573576, -7.70652e-08, 0.573576, 0.819153, -2.42991e-08, 7.70656e-08, -2.42981e-08, 1, -1.35997, 0.992711, -0.0299587)
+transform = Transform3D(0.819153, -0.573576, -7.70652e-08, 0.573576, 0.819153, -2.42991e-08, 7.70656e-08, -2.42981e-08, 1, -1.22197, 1.12697, -0.0331511)
 bone_name = "item chute"
 bone_idx = 4
 
@@ -370,6 +390,7 @@ mesh = SubResource("ArrayMesh_5pr60")
 skeleton = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_vmwif")
 }
@@ -377,3 +398,16 @@ libraries = {
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-5.24537e-09, 0, 0.12, 0, 0.12, 0, -0.12, 0, -5.24537e-09, -1.22697, 2.99164, -0.0421344)
 texture = SubResource("NoiseTexture2D_3m44o")
+
+[node name="handDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47385, 1.37735, 0)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="handDetector"]
+shape = SubResource("SphereShape3D_5dc1g")
+
+[node name="itemStart" type="Marker3D" parent="."]
+transform = Transform3D(-3.57704e-08, -0.574748, -0.81833, -2.5123e-08, 0.81833, -0.574748, 1, 0, -4.37114e-08, -1.57212, 1.01322, 0)
+
+[connection signal="area_entered" from="handDetector" to="." method="_on_hand_detector_area_entered"]

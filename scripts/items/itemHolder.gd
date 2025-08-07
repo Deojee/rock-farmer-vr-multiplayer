@@ -14,59 +14,74 @@ var heldObject : RigidBody3D = null
 var originialRotation : Basis
 var originalOffset : Vector3
 
+func _init() -> void:
+	
+	#the player already set the authority for us.
+	
+	pass
+	
+
+
+var ownerId : int
 
 func _ready():
 	pass
 	
 
-var vrHoldPressedLastFrame = false
-var vrShootPressedLastFrame = false
+##synced between authority and server
+##set only by authority
+@export var holdPressed : bool = false 
+
+var holdPressedLastFrame = false #calculated on both authority and server
+
 func _physics_process(delta):
 	
+	if is_multiplayer_authority():
+		
+		handleInputs() #these are handled by the owner and then synced with the server
+		getClosestItem()
+	
+	if !multiplayer.is_server():
+		return
+	
+	var holdJustPressed = holdPressed and !holdPressedLastFrame
 	
 	var closestItem = getClosestItem()
-	#print(closestItem)
-	
-	#var holdPressed = Input.is_action_pressed("right_click") or (xrController and xrController.get_float("grip"))
-	
-	var useJustPressed : bool = Input.is_action_just_pressed("mouseRight") or (xrController and xrController.is_button_pressed("trigger_click"))
 	
 	
-	
-	if isVr:
-		#if !holdPressedLastFrame and holdPressed and closestItem and !heldObject:
-		#if !holdPressed and holdPressedLastFrame and heldObject:
-		var holdPressed = Input.is_action_just_pressed("mouseRight") or (xrController and xrController.get_float("grip"))
-		var holdJustPressed = !vrHoldPressedLastFrame and holdPressed
+	if closestItem and !heldObject and holdJustPressed:
 		
-		if holdJustPressed and closestItem and !heldObject:
-			pickUp(closestItem)
-		elif !holdPressed and heldObject:
-			heldObject = null
+		pickUp(closestItem)
 		
-		vrHoldPressedLastFrame = holdPressed
-	else:
-		var holdJustPressed = Input.is_action_just_pressed("mouseRight")
-		if holdJustPressed and closestItem and !heldObject:
-			pickUp(closestItem)
-		elif holdJustPressed and heldObject:
-			heldObject = null
+	elif !holdPressed:
+		heldObject = null
 	
 	
-	if heldObject:
-		
-		
+	if heldObject and multiplayer.is_server():
 		handleHeldItem(delta)
-		
-		if heldObject is holdableItem:
-			if !isVr:
-				pass
-			elif xrController:#checks for controller here
-				pass
 	
-	vrShootPressedLastFrame = useJustPressed
+	holdPressedLastFrame = holdPressed
+	
+	
 	
 
+#called by authority only
+func handleInputs():
+	
+	if isVr:
+		
+		holdPressed = (xrController and xrController.get_float("grip"))
+		
+	else:
+		
+		if Input.is_action_just_pressed("mouseRight"):
+			holdPressed = !holdPressed
+		
+		
+	
+	pass
+
+#only called by server
 func pickUp(item):
 	heldObject = item
 	
@@ -78,9 +93,12 @@ func pickUp(item):
 	originalOffset = m.origin * 0.9 #we allow for an offset but it's not a large one
 	originialRotation = m.basis
 
+#called by authority and server
+#authority only uses it for showing the pickup icon
 func getClosestItem():
 	
 	var items = $itemsDetect.get_overlapping_bodies()
+	
 	for item in items:
 		if !item is RigidBody3D:
 			items.erase(item)
@@ -88,6 +106,7 @@ func getClosestItem():
 	if items.size() < 1:
 		$targetIcon.visible = false
 		return null
+	
 	
 	var closestDistance = global_position.distance_to(items[0].global_position)
 	var closestItem = items[0]
@@ -104,7 +123,8 @@ func getClosestItem():
 			
 			
 	
-	if heldObject == null:
+	if !holdPressed and is_multiplayer_authority():
+		
 		$targetIcon.visible = true
 		$targetIcon.global_position = closestItem.global_position
 		$targetIcon.global_rotation = Vector3.ZERO
@@ -116,6 +136,7 @@ func getClosestItem():
 	return closestItem
 	
 
+#called by server only
 func handleHeldItem(delta):
 	
 	if !heldObject.is_visible_in_tree():

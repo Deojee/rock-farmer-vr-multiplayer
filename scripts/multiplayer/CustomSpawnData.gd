@@ -3,8 +3,8 @@ class_name CustomSpawnData
 
 var scenePath: String
 var authorityID: int
-var propertiesToSet: Dictionary
-var functionsToCall: Dictionary
+var propertiesToSet: Dictionary #string : variant
+var functionsToCall: Dictionary #string : Array
 
 func _init(scene := "", authority := 1, _props := {}, _funcs := {}):
 	scenePath = scene

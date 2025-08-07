@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy1p2q4kubu2f"]
+[gd_scene load_steps=9 format=3 uid="uid://dy1p2q4kubu2f"]
 
 [ext_resource type="Script" uid="uid://dw6bh5dbwq3jp" path="res://scripts/player/keyboard_player.gd" id="1_5m1pa"]
 [ext_resource type="PackedScene" uid="uid://cii51k8xqbcds" path="res://scenes/items/itemHolder.tscn" id="2_loucl"]
@@ -13,6 +13,9 @@ albedo_color = Color(0.345098, 0.333333, 1, 1)
 [sub_resource type="PrismMesh" id="PrismMesh_5m1pa"]
 material = SubResource("StandardMaterial3D_5m1pa")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_loucl"]
+radius = 1.0
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_loucl"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
@@ -20,6 +23,12 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("nametag:text")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="keyboardPlayer" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
 collision_layer = 3
@@ -41,8 +50,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957913, 0)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("PrismMesh_5m1pa")
 
-[node name="itemHolder" parent="Camera" instance=ExtResource("2_loucl")]
+[node name="itemHolder" parent="Camera" node_paths=PackedStringArray("body") instance=ExtResource("2_loucl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2272)
+body = NodePath("../..")
+
+[node name="handDetectableArea" type="Area3D" parent="Camera/itemHolder"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/itemHolder/handDetectableArea"]
+shape = SubResource("SphereShape3D_loucl")
 
 [node name="nametag" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72844, 0)
