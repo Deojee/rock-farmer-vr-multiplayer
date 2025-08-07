@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=4 uid="uid://caouog3w7d62a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0dpt"]
+resource_name = "dark wood"
+cull_mode = 2
+albedo_color = Color(0.417083, 0.339072, 0.230406, 1)
+roughness = 0.876147
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk0dk"]
+resource_name = "wood"
+cull_mode = 2
+albedo_color = Color(0.57789, 0.469808, 0.319245, 1)
+roughness = 0.876147
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j6eso"]
+_surfaces = [{
+"aabb": AABB(0.0779947, 1.60617, -11.3338, 0.30671, 3.32821, 11.5611),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAAFAAEAAwACAAEABQADAAEADAAAAAIABQAAAAwAAwANAAIADAACAA0ABQAEAAMABQAMAAQABAANAAMABAAMAA0ABgAHAAgABgALAAcADgAIAAcACwAOAAcACgAGAAgACwAGAAoADgAJAAgACgAIAAkACwAPAA4ACwAKAA8ADwAJAA4ADwAKAAkA"),
+"lods": [0.263851, PackedByteArray("AAABAAIAAwACAAEABAAAAAIABAACAAMAAAAFAAEABQAAAAQABQADAAEABQAEAAMABgAHAAgABwAJAAgACgAGAAgACgAIAAkABgALAAcACwAGAAoACwAJAAcACwAKAAkA")],
+"name": "dark wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("ZQeQsof4AADVARvDAAAAABQI/////wAA3PiQxAYFAAD99Xh3JwYAAMcKDHrICwAACQJMAgj1AAAAADNJ6QEAAEYCy04Q+wAA7/uyTG33AADX+MkCv/UAAAUJAADBAAAAwvSKsIf1AADS9OH/WfoAADP5SkyyBAAA//+DAhgLAAA=")
+}, {
+"aabb": AABB(-0.166048, -0.0368462, -0.513743, 0.776466, 6.40355, 1.00831),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYAAwAHAAQAAwAFAAgAAwAIAAcACAAFAAYABwAJAAQABwAIAAkAAgAEAAkACAAGAAkAAgAJAAYA"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("EYC+AT8iAABh/3j/cFoAAHJ/Uf8AAAAA//+ZAUq6AADMzr//EtcAAAAAzABemAAAMwH//wxqAABSzrAAtskAAAUwAABipAAA1TA4////AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c8pal"]
+resource_name = "fence peices_Cube"
+_surfaces = [{
+"aabb": AABB(0.0779947, 1.60617, -11.3338, 0.30671, 3.32821, 11.5611),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//58AAP+f/3//XwAA/x//f/8f/z//X/9//5//f//f/z//3/9//1////+f/7//n////1//v/9f/7//n/8//5//v/9f/z//X/8//58AAP+f/z//XwAA/x//f/8f/z//X/8//9//f/+f/z//3/8//5//P/9f/z//X/8//5//P/9f/z//n/8//5//f/9f/3//X/9//5//f/9f/3//n/9/"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAkAAoACAAlACQAJgAJACcAJgALAAkADAAoAA4ADAANACgADwAQABEADwApABAAEgATABQAEgAVABMAFgAqABgAFgArACoALAAXAC0ALAAZABcAGgAbABwAGgAdABsAHgAgAC4AHgAfACAALwAjACEALwAiACMA"),
+"lods": [0.263851, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADwAQABEAEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAIQAiACMA")],
+"material": SubResource("StandardMaterial3D_m0dpt"),
+"name": "dark wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("ZQeQsof4+M7VARvDAADF4BQI/////0XOxwoMesgLVOLHCgx6yAst+dz4kMQGBST51QEbwwAAIvn99Xh3JwYw+f31eHcnBnHUFAj/////G8bc+JDEBgUY1GUHkLKH+PvHxwoMesgLn8NlB5Cyh/jlv/31eHcnBq3D3PiQxAYFM+8UCP/////O69UBG8MAAObuCQJMAgj1rM8AADNJ6QHp00YCy04Q+3fPBQkAAMEALtQFCQAAwQCm5e/7skxt97rWAAAzSekBpufX+MkCv/VB19f4yQK/9enBRgLLThD73MDv+7JMbfeGwAkCTAII9TzCBQkAAMEA8skJAkwCCPU9wNf4yQK/9UrAAAAzSekBN/Xv+7JMbff68EYCy04Q+4rx0vTh/1n64dnC9Iqwh/VS2sL0irCH9XLH0vTh/1n6qMXC9Iqwh/Xvv9L04f9Z+vnqM/lKTLIEz+b//4MCGAs25f//gwIYCznPM/lKTLIE287//4MCGAuhyjP5SkyyBIX1j8za2WPhY895y2ba5uKhzhNFGkXbRExFzURZRSRFC0WoKzMqJQ3AIRcs/CkpDLYhPjj7ZrIo9m5lOOdmO8iZE5WTZrhjyOQTkM1Y2VbTcdZAzYDZrdNF1mU6ETMYKWYr8DNoN3wotCuYAUAU4AFoFPcBdBSBATQUfR4HwZMCm4xeAxeOLcZPDA6OOrmDjX65YCVVLeUkky1wDLkhYg3CIfAo125slPu3hzaqNfc7AjLyMnYmgTMuJj0fcMIHxgQM")
+}, {
+"aabb": AABB(-0.166048, -0.0368462, -0.513743, 0.776466, 6.40355, 1.00831),
+"attribute_data": PackedByteArray("////f8zMAAD//wAAzMz/f8zM/3+ZmQAAzMwAAJmZ/3+Zmf9/ZmYAAJmZAABmZv9/HGSz8f8/joJuegKt4huz8ZEFAq1mZv9/MzMAAGZmAAAzM/9/MzP/fwAAAAAzMwAAAAD/f5CFAq1t+gKt/7+OguKbs/Ec5LPx"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADQAMAA8ADQAPABAAEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAGgAZABwAGgAcAB0A"),
+"material": SubResource("StandardMaterial3D_vk0dk"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("EYC+AT8izNth/3j/cFrO23J/Uf8AAM7b//+ZAUq6zNv//5kBSrpKrMzOv/8S182rYf94/3BazatSzrAAtslWrFLOsAC2yViC1TA4////pIHMzr//EteegQUwAABipGOCzM6//xLXccByf1H/AAAawGH/eP9wWiXA1TA4////pcAzAf//DGofwAUwAABipCWvMwH//wxqoq7VMDj///+hrgAAzABemDWvAADMAF6YQN1yf1H/AABF3TMB//8MakXdEYC+AT8iQN0AAMwAXphqPP//mQFKujU8EYC+AT8iajwFMAAAYqRkPFLOsAC2ycU70H6PAtl/BgLuf/sBwH6XAn5pfQfbgQwC/oFtApJo1wfNFDYt+R3pPqgeOkB4FJEsZ/Rzaa75EXRS8/2FjPK3ZT75MHPudTrndX2f+o994vp8dRXmTn1S/e2C0/5Lg5L+E336/BcH9pFWCSCWFwf2kWkHj5K5DGac")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_j6eso")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kksky"]
+size = Vector3(0.616211, 6.43066, 0.873901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3eqol"]
+size = Vector3(0.307007, 3.21484, 10.8334)
+
+[node name="fenceSegment" type="StaticBody3D"]
+collision_layer = 4
+
+[node name="fence segment" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_c8pal")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167453, 3.21728, 0.0744146)
+shape = SubResource("BoxShape3D_kksky")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237949, 3.21484, -5.65634)
+shape = SubResource("BoxShape3D_3eqol")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=4 uid="uid://bsfcfmj3tn3rk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7g5e7"]
+size = Vector3(0.616211, 6.79883, 0.727997)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk0dk"]
+resource_name = "wood"
+cull_mode = 2
+albedo_color = Color(0.57789, 0.469808, 0.319245, 1)
+roughness = 0.876147
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ujrc1"]
+_surfaces = [{
+"aabb": AABB(-0.973016, -0.441006, -13.3442, 0.905736, 6.86865, 0.85615),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYAAwAHAAQAAwAFAAgAAwAIAAcACAAFAAYABwAJAAQABwAIAAkAAgAEAAkACAAGAAkAAgAJAAYA"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("lH5DCAAAAADw84f49VgAAH9/IvvQDAAA//8HBb1nAACWw/////8AAB4CjQ1yYwAAAACd+B1fAACAw/kC6fYAANQqAADq+gAAtC6f+XP7AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lguij"]
+resource_name = "fence peices_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-0.973016, -0.441006, -13.3442, 0.905736, 6.86865, 0.85615),
+"attribute_data": PackedByteArray("////f8zMAAD//wAAzMz/f8zM/3+ZmQAAzMwAAJmZ/3+Zmf9/ZmYAAJmZAABmZv9/HGSz8f8/joJuegKt4huz8ZEFAq1mZv9/MzMAAGZmAAAzM/9/MzP/fwAAAAAzMwAAAAD/f5CFAq1t+gKt/7+OguKbs/Ec5LPx"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADQAMAA8ADQAPABAAEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAGgAZABwAGgAcAB0A"),
+"material": SubResource("StandardMaterial3D_vk0dk"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("lH5DCAAAaOfw84f49Vhn539/IvvQDGfn//8HBb1naOf//wcFvWejsZbD/////9iy8POH+PVYFbOAw/kC6fazsYDD+QLp9kmGtC6f+XP7foyWw//////JjNQqAADq+viFlsP/////PcR/fyL70Aw7xPDzh/j1WALFtC6f+XP7GMQAAJ34HV8XxNQqAADq+h24AACd+B1fGbS0Lp/5c/sgtB4CjQ1yY+G4HgKNDXJjyOd/fyL70Ayn5wAAnfgdX6znlH5DCAAAz+ceAo0NcmMPNf//BwW9Z/k0lH5DCAAADzXUKgAA6vr5NIDD+QLp9qc0enS2COR0ZgjqdGEIdXS6CFR0hwSCjt0iaI8RJZRxqgUKAR/+mgAV/5cAG/8VAQX+sfwPipf8EYrk+MRp1PaZikX1vYpAauzM3YK4/gGH9Pz7aPPJFZHc8rl5rvd/eBP2JpIM8lMPuYrLDlCIUw+5isoOTIiFDYKC")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ujrc1")
+
+[node name="fenceSegment" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 26
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167453, 3.0332, 0.0765966)
+shape = SubResource("BoxShape3D_7g5e7")
+
+[node name="fence post" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.714463, 0, 12.9365)
+mesh = SubResource("ArrayMesh_lguij")
+skeleton = NodePath("")

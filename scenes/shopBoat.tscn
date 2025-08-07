@@ -3,6 +3,56 @@
 [ext_resource type="PackedScene" uid="uid://cpdual5q4g33g" path="res://scenes/items/shop_module.tscn" id="1_ekqdd"]
 [ext_resource type="Texture2D" uid="uid://cvbditxuwabnq" path="res://textures/smoke128.png" id="2_aolon"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ekqdd"]
+height = 2.34497
+radius = 0.751953
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aolon"]
+size = Vector3(1, 0.606934, 2.7287)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r185n"]
+render_priority = 10
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_aolon")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8r6ox"]
+material = SubResource("StandardMaterial3D_r185n")
+uv2_padding = 3.65
+size = Vector2(6, 6)
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_r185n"]
+_data = [Vector2(0, 0.326312), 0.0, 0.0, 0, 0, Vector2(0.312253, 1), 0.0, 0.0, 0, 0, Vector2(0.754941, 0.90438), 0.0, 0.0, 0, 0, Vector2(1, 0.571882), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_8r6ox"]
+offsets = PackedFloat32Array(0, 0.440265, 0.997788)
+colors = PackedColorArray(1, 1, 1, 1, 0.87, 0.87, 0.87, 0.439216, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aolon"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.0854107, 0.14223, 0.142545, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_r185n"]
+material = SubResource("StandardMaterial3D_aolon")
+radius = 2.0
+height = 4.0
+radial_segments = 4
+rings = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7dvf"]
 resource_name = "wood"
 cull_mode = 2
@@ -348,58 +398,78 @@ _data = {
 &"ArmatureAction": SubResource("Animation_mae2q")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ekqdd"]
-height = 2.34497
-radius = 0.751953
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_aolon"]
-size = Vector3(1, 0.606934, 2.7287)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r185n"]
-render_priority = 10
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_aolon")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-grow = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8r6ox"]
-material = SubResource("StandardMaterial3D_r185n")
-uv2_padding = 3.65
-size = Vector2(6, 6)
-orientation = 2
-
-[sub_resource type="Curve" id="Curve_r185n"]
-_data = [Vector2(0, 0.326312), 0.0, 0.0, 0, 0, Vector2(0.312253, 1), 0.0, 0.0, 0, 0, Vector2(0.754941, 0.90438), 0.0, 0.0, 0, 0, Vector2(1, 0.571882), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Gradient" id="Gradient_8r6ox"]
-offsets = PackedFloat32Array(0, 0.440265, 0.997788)
-colors = PackedColorArray(1, 1, 1, 1, 0.87, 0.87, 0.87, 0.439216, 1, 1, 1, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aolon"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.0854107, 0.14223, 0.142545, 1)
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="SphereMesh" id="SphereMesh_r185n"]
-material = SubResource("StandardMaterial3D_aolon")
-radius = 2.0
-height = 4.0
-radial_segments = 4
-rings = 2
-
 [node name="boat" type="Node3D"]
 transform = Transform3D(3, -0.000198175, 0.000173837, 0.00019811, 3, 0.00112135, -0.000173912, -0.00112134, 3, 0, 0, 0)
+
+[node name="modules" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000442028, -0.0131223, -0.00103474)
+
+[node name="shopModule1" parent="modules" instance=ExtResource("1_ekqdd")]
+transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.2882, 0.690037, -0.00891083)
+
+[node name="shopModule2" parent="modules" instance=ExtResource("1_ekqdd")]
+transform = Transform3D(0.231326, -1.19236e-05, 3.96809e-05, 1.19045e-05, 0.231326, 9.64505e-05, -3.96867e-05, -9.64481e-05, 0.231326, -0.288109, 0.691781, 0.404705)
+
+[node name="shopModule3" parent="modules" instance=ExtResource("1_ekqdd")]
+transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.288109, 0.691781, 0.822863)
+
+[node name="shopModule4" parent="modules" instance=ExtResource("1_ekqdd")]
+transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.288109, 0.691781, 1.26424)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, -5.03064e-12, 0, 4.35207e-13, 1, -2.91038e-11, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, -0.000124862, -7.34077e-06, -8.97018e-06, -0.0130547, -0.999915, 0.000124756, 0.999915, -0.0130547, 0.0243034, 1.13446, 0.616468)
+shape = SubResource("CylinderShape3D_ekqdd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, -1.94044e-09, -8.73115e-10, 4.33431e-13, 1, -7.77072e-09, 0, 0, 1, 8.00355e-11, 0.196533, 0.581635)
+shape = SubResource("BoxShape3D_aolon")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.484407, 0.000294328, 0.874843, 0.292468, 0.942518, 0.161625, -0.824507, 0.334156, -0.456648, 0.101508, 2.60792, 0.771901)
+amount = 24
+lifetime = 2.0
+speed_scale = 0.5
+randomness = 0.2
+lifetime_randomness = 0.22
+mesh = SubResource("PlaneMesh_8r6ox")
+spread = 27.39
+gravity = Vector3(0, 6, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+damping_min = 1.0
+damping_max = 2.0
+scale_amount_min = 0.2
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_r185n")
+color_ramp = SubResource("Gradient_8r6ox")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.484407, 0.000294328, 0.874843, 0.292468, 0.942518, 0.161625, -0.824507, 0.334156, -0.456648, 0.262454, 2.60791, 0.77191)
+visible = false
+emitting = false
+amount = 24
+lifetime = 2.0
+speed_scale = 0.5
+randomness = 0.2
+lifetime_randomness = 0.22
+mesh = SubResource("SphereMesh_r185n")
+spread = 27.39
+gravity = Vector3(0, 6, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+damping_min = 1.0
+damping_max = 2.0
+scale_amount_min = 0.2
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_r185n")
+color_ramp = SubResource("Gradient_8r6ox")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0, 0)
@@ -480,73 +550,3 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_6f6yg")
 }
-
-[node name="modules" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000442028, -0.0131223, -0.00103474)
-
-[node name="shopModule1" parent="modules" instance=ExtResource("1_ekqdd")]
-transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.2882, 0.690037, -0.00891083)
-
-[node name="shopModule2" parent="modules" instance=ExtResource("1_ekqdd")]
-transform = Transform3D(0.231326, -1.19236e-05, 3.96809e-05, 1.19045e-05, 0.231326, 9.64505e-05, -3.96867e-05, -9.64481e-05, 0.231326, -0.288109, 0.691781, 0.404705)
-
-[node name="shopModule3" parent="modules" instance=ExtResource("1_ekqdd")]
-transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.288109, 0.691781, 0.822863)
-
-[node name="shopModule4" parent="modules" instance=ExtResource("1_ekqdd")]
-transform = Transform3D(0.231326, 0, 0, 0, 0.231326, 0, 0, 0, 0.231326, -0.288109, 0.691781, 1.26424)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, -5.03064e-12, 0, 4.35207e-13, 1, -2.91038e-11, 0, 0, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, -0.000124862, -7.34077e-06, -8.97018e-06, -0.0130547, -0.999915, 0.000124756, 0.999915, -0.0130547, 0.0243034, 1.13446, 0.616468)
-shape = SubResource("CylinderShape3D_ekqdd")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, -1.94044e-09, -8.73115e-10, 4.33431e-13, 1, -7.77072e-09, 0, 0, 1, 8.00355e-11, 0.196533, 0.581635)
-shape = SubResource("BoxShape3D_aolon")
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(-0.484407, 0.000294328, 0.874843, 0.292468, 0.942518, 0.161625, -0.824507, 0.334156, -0.456648, 0.101508, 2.60792, 0.771901)
-amount = 24
-lifetime = 2.0
-speed_scale = 0.5
-randomness = 0.2
-lifetime_randomness = 0.22
-mesh = SubResource("PlaneMesh_8r6ox")
-spread = 27.39
-gravity = Vector3(0, 6, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 4.0
-angular_velocity_min = -100.0
-angular_velocity_max = 100.0
-damping_min = 1.0
-damping_max = 2.0
-scale_amount_min = 0.2
-scale_amount_max = 1.2
-scale_amount_curve = SubResource("Curve_r185n")
-color_ramp = SubResource("Gradient_8r6ox")
-
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
-transform = Transform3D(-0.484407, 0.000294328, 0.874843, 0.292468, 0.942518, 0.161625, -0.824507, 0.334156, -0.456648, 0.262454, 2.60791, 0.77191)
-visible = false
-emitting = false
-amount = 24
-lifetime = 2.0
-speed_scale = 0.5
-randomness = 0.2
-lifetime_randomness = 0.22
-mesh = SubResource("SphereMesh_r185n")
-spread = 27.39
-gravity = Vector3(0, 6, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 4.0
-angular_velocity_min = -100.0
-angular_velocity_max = 100.0
-damping_min = 1.0
-damping_max = 2.0
-scale_amount_min = 0.2
-scale_amount_max = 1.2
-scale_amount_curve = SubResource("Curve_r185n")
-color_ramp = SubResource("Gradient_8r6ox")
