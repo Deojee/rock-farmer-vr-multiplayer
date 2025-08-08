@@ -102,6 +102,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="maxPlayersLine" type="SpinBox" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -133,8 +134,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "debug text"
 
-[connection signal="nameValidityChanged" from="MarginContainer/HBoxContainer/VBoxContainer/lobbyNameLine" to="." method="_on_lobby_name_line_name_validity_changed"]
-[connection signal="nameValidityChanged" from="MarginContainer/HBoxContainer/VBoxContainer/playerNameLine" to="." method="_on_player_name_line_name_validity_changed"]
+[connection signal="nameChanged" from="MarginContainer/HBoxContainer/VBoxContainer/lobbyNameLine" to="." method="_on_lobby_name_line_name_changed"]
+[connection signal="nameChanged" from="MarginContainer/HBoxContainer/VBoxContainer/playerNameLine" to="." method="_on_player_name_line_name_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start lobby" to="." method="_on_start_lobby_pressed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer2/maxPlayersLine" to="." method="_on_max_players_line_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer2/portLine" to="." method="_on_port_line_value_changed"]

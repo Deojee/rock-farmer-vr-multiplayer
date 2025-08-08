@@ -13,6 +13,8 @@ func _ready() -> void:
 		freeze = true
 		freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
 	
+	scaleIn()
+	
 
 func use(hand,body):
 	pass
@@ -21,13 +23,18 @@ func use(hand,body):
 
 
 
-const startScale = 0.1
-const expandTime = 0.5
+const startScale = 0.01
+const expandTime = 0.25
 func scaleIn():
 	
-	scale = startScale * Vector3.ONE
 	
-	var tween = create_tween()
-	
-	tween.tween_property(self,"scale",Vector3.ONE,expandTime)
-	
+	for child in get_children():
+		if child is MeshInstance3D:
+			
+			var childStartScale = child.scale
+			child.scale = startScale * childStartScale
+			
+			var tween = get_tree().create_tween()
+			
+			tween.tween_property(child,"scale",childStartScale,expandTime)
+			

@@ -55,9 +55,9 @@ func _on_refresh_pressed() -> void:
 	
 	pass # Replace with function body.
 
-func _on_player_name_line_name_validity_changed(isValid : bool, playerName : String) -> void:
-	
+
+
+func _on_player_name_line_name_changed(isValid : bool, playerName : String) -> void:
 	if isValid:
 		Globals.nameTag = playerName
 	readyToJoinSever = isValid
-	

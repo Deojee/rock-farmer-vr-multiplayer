@@ -179,8 +179,6 @@ scene_properties_keys = PackedStringArray()
 
 [node name="itemHolder" parent="." instance=ExtResource("2_wtctk")]
 isVr = true
-linear_spring_damping = null
-angular_spring_damping = null
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(-0.230036, -2.01104e-08, 8.79055e-16, 0, -1.00552e-08, -0.230036, 2.01104e-08, -0.230037, 1.00552e-08, -0.0181881, -0.00732984, 0.156595)

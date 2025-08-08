@@ -5,6 +5,9 @@ class_name CensoredNameLine
 #called as (isValid,currentName)
 signal nameValidityChanged
 
+#called as (isValid,currentName)
+signal nameChanged
+
 @export var showRandomButton = true
 
 @export var minLength := 3
@@ -78,6 +81,8 @@ func _on_text_changed(new_text: String) -> void:
 		$validityIndicator.color = Color.GREEN
 	else:
 		$validityIndicator.color = Color.RED
+	
+	nameChanged.emit(valid,text)
 	
 
 var adjectives = [

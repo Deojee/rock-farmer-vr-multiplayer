@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b04u1w4frufuw"]
+[gd_scene load_steps=18 format=4 uid="uid://b04u1w4frufuw"]
 
 [ext_resource type="Texture2D" uid="uid://b61pghrstd4f4" path="res://assets/house_Image_6.png" id="1_gh3y0"]
 
@@ -217,6 +217,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v5c7r")
 
+[sub_resource type="Animation" id="Animation_15hu0"]
+resource_name = "ArmatureAction"
+length = 1.875
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_002/Skeleton3D:Bone")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_j4bko"]
 resource_name = "Armature_001Action"
 length = 0.75
@@ -239,23 +250,15 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, 0, 0, 0.0666667, 1, -0.0256858, 0, 0, 0.1, 1, -0.0887016, 0, 0, 0.133333, 1, -0.19076, 0, 0, 0.166667, 1, -0.323641, 0, 0, 0.2, 1, -0.481181, 0, 0, 0.233333, 1, -0.644885, 0, 0, 0.266667, 1, -0.806534, 0, 0, 0.3, 1, -0.957909, 0, 0, 0.333333, 1, -1.09079, 0, 0, 0.366667, 1, -1.18257, 0, 0, 0.4, 1, -1.23121, 0, 0, 0.416667, 1, -1.24833, 0, 0)
 
-[sub_resource type="Animation" id="Animation_15hu0"]
-resource_name = "ArmatureAction"
-length = 1.875
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature_002/Skeleton3D:Bone")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_feqd0"]
 _data = {
 &"ArmatureAction": SubResource("Animation_15hu0"),
 &"Armature_001Action": SubResource("Animation_j4bko"),
 &"Armature_002Action": SubResource("Animation_3oeu1")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gh3y0"]
+size = Vector3(2.02185, 1, 1.37)
 
 [node name="house" type="StaticBody3D"]
 collision_layer = 4
@@ -302,3 +305,7 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_feqd0")
 }
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.943002, -0.332787, 0, 0.332787, 0.943002, 1.97359, -0.505287, 3.5209)
+shape = SubResource("BoxShape3D_gh3y0")

@@ -1,6 +1,6 @@
 extends Node3D
 
-const ejectionSpeed = 5
+const ejectionSpeed = 8
 
 var spawnableScenes = [
 	"res://scenes/items/tools/pickaxes/pickaxe_tier_1.tscn",
@@ -28,6 +28,9 @@ func _on_hand_detector_area_entered(area: Area3D) -> void:
 	pass # Replace with function body.
 
 func dispense():
+	
+	if !multiplayer.is_server():
+		return
 	
 	var customSpawnData : CustomSpawnData = CustomSpawnData.new()
 	

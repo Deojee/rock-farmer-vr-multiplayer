@@ -6,6 +6,7 @@ var lobbyNameLine : CensoredNameLine
 var playerNameLine : CensoredNameLine
 var debugText : Label
 var portLine : SpinBox
+var maxPlayersLine : SpinBox
 
 var startLobbyButton : Button
 
@@ -18,12 +19,14 @@ func _ready() -> void:
 	startLobbyButton = %"start lobby"
 	debugText = %debugText
 	portLine = %portLine
+	maxPlayersLine = %maxPlayersLine
+	
 	
 	
 	var randomPort = randi_range(portLine.min_value + 1,portLine.max_value - 1)
 	portLine.value = randomPort
 	LobbySyncer.myEntry.port = randomPort
-	
+	LobbySyncer.myEntry.maxPlayers = maxPlayersLine.value 
 	
 	pass
 
@@ -42,16 +45,17 @@ Globals.nameTag = censoredName
 """
 
 
-func _on_player_name_line_name_validity_changed(isValid : bool, playerName : String) -> void:
+func _on_player_name_line_name_changed(isValid : bool, playerName : String) -> void:
 	
 	if isValid:
 		Globals.nameTag = playerName
 	
 
 
-func _on_lobby_name_line_name_validity_changed(isValid : bool, lobbyName : String) -> void:
+func _on_lobby_name_line_name_changed(isValid : bool, lobbyName : String) -> void:
 	
 	if isValid:
+		print(lobbyName)
 		LobbySyncer.myEntry.lobbyName = lobbyName
 	
 

@@ -103,7 +103,8 @@ func failedToConnect():
 func peer_connected(peerId : int):
 	
 	if multiplayer.is_server():
-		LobbySyncer.myEntry.currentPlayers = multiplayer.get_peers().size()
+		
+		LobbySyncer.myEntry.currentPlayers = multiplayer.get_peers().size() + 1
 		
 		pass
 	
@@ -112,7 +113,7 @@ func peer_connected(peerId : int):
 func peer_disconnected(peerId : int):
 	
 	if multiplayer.is_server():
-		LobbySyncer.myEntry.currentPlayers = multiplayer.get_peers().size()
+		LobbySyncer.myEntry.currentPlayers = multiplayer.get_peers().size() + 1
 		
 	
 	pass

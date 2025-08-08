@@ -40,6 +40,8 @@ func _physics_process(delta):
 		
 		handleInputs() #these are handled by the owner and then synced with the server
 		getClosestItem()
+	else:
+		$targetIcon.visible = false
 	
 	if !multiplayer.is_server():
 		return

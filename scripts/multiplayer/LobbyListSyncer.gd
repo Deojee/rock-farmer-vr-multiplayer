@@ -13,7 +13,7 @@ signal lobbies_updated(lobbies : Array)
 
 var lobby_id #this is for the lobby tracking server, not us.
 var myEntry = LobbyListEntry.new({})
-var HEARTBEAT_INTERVAL = 5.0
+var HEARTBEAT_INTERVAL = 15.0
 
 var heartbeat_request : HTTPRequest
 var fetch_request : HTTPRequest
@@ -54,6 +54,7 @@ func cease_beating():
 	shouldBeat = false
 	myTimer.stop()
 
+
 func _send_heartbeat():
 	
 	if !shouldBeat: #we don't have a server open right now so obs don't beat
@@ -63,9 +64,12 @@ func _send_heartbeat():
 		LOBBY_ID_KEY : lobby_id,
 		INFO_KEY: myEntry.getLobbyInfo()
 	}, "", false)
-	pass
+	
+	#print("sending: ", json_data)
+	#print(multiplayer.get_peers().size())
+	
 	var headers = ["Content-Type: application/json"]
-
+	
 	if heartbeat_request.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
 		heartbeat_request.request(
 			"https://multiplayer-lobby-handler.onrender.com/heartbeat",
@@ -76,10 +80,12 @@ func _send_heartbeat():
 	else:
 		print("Skipped heartbeat: request still in progress")
 
+var lastHeartbeatSuceeded = false
 func _on_heartbeat_response(result, response_code, headers, body):
 	if response_code == 200:
-		print("Heartbeat sent successfully")
-		pass
+		if !lastHeartbeatSuceeded: #we don't need to know about any beats after the first.
+			print("Heartbeat sent successfully") 
+		lastHeartbeatSuceeded = true
 	else:
 		print("Heartbeat failed with code:", response_code)
 
@@ -104,14 +110,17 @@ func _on_lobbies_response(result, response_code, headers, body):
 		return
 
 	var raw_list = jsonParser.data
-	var parsed_lobbies := []
+	var parsed_lobbies : Array[LobbyListEntry] = []
 
 	for entry in raw_list:
 		if typeof(entry) == TYPE_DICTIONARY:
 			var lobby = LobbyListEntry.new(entry)
 			parsed_lobbies.append(lobby)
 	
-	print(parsed_lobbies)
+	#print("fetched: ")
+	#for lobby in parsed_lobbies:
+	#	print(lobby.getLobbyInfo())
+	
 	emit_signal("lobbies_updated", parsed_lobbies)
 
 # === Lobby ID Generation ===

@@ -26,6 +26,7 @@ collision_mask = 16
 shape = SubResource("SphereShape3D_3bten")
 
 [node name="targetIcon" type="Sprite3D" parent="."]
+visible = false
 pixel_size = 0.05
 billboard = 1
 no_depth_test = true
