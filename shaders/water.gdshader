@@ -8,6 +8,8 @@ uniform float wobble_intensity = 0.4;
 uniform float texture_scale = 0.2;
 uniform sampler2D water : repeat_enable;
 
+uniform float color_multiplier : hint_range(0.0, 1.0) = 0.1;
+
 // https://godotshaders.com/shader/shield-shader-with-intersection-highlight/
 uniform sampler2D depth_texture : source_color, hint_depth_texture;
 
@@ -46,4 +48,5 @@ void fragment() {
 	float linear_object_depth = -object_view.z;
 
 	ALBEDO = mix(color1, color2, smoothstep(0.0, 4.0, linear_depth - linear_object_depth));
+	ALBEDO = ALBEDO.rgb * color_multiplier;
 }
