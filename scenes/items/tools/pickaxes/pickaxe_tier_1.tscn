@@ -100,7 +100,7 @@ script = ExtResource("2_gdrte")
 handle = NodePath("handle")
 
 [node name="T1 pickaxe" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(5.18137e-08, 0, -0.144882, 0, 0.144882, 0, 0.144882, 0, 5.18137e-08, 0.000871658, -0.386996, -0.0110778)
+transform = Transform3D(4.54808e-08, 0, -0.144882, 0, 0.144882, 0, 0.144882, 0, 4.54808e-08, 0.000871658, -0.386996, -0.0110778)
 mesh = SubResource("ArrayMesh_qbbyx")
 skeleton = NodePath("")
 

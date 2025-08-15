@@ -17,7 +17,7 @@ func _init() -> void:
 #called by all peers but only the server actually does it.
 func _on_hand_detector_area_entered(area: Area3D) -> void:
 	
-	print("dispensing!")
+	#print("dispensing!")
 	
 	if !is_multiplayer_authority():
 		return

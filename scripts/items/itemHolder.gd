@@ -8,8 +8,31 @@ extends Node3D
 @export var xrController : XRController3D = null
 
 
-
-var heldObject : RigidBody3D = null 
+var _heldObject : RigidBody3D = null
+var heldObject : RigidBody3D = null: #makes sure to tell the object 
+	set(value):
+		
+		if !multiplayer.is_server(): #only server updates being held
+			_heldObject = value
+			return
+		
+		if value == _heldObject:
+			_heldObject.beingHeld = true
+			return
+		
+		if _heldObject != null:
+			if _heldObject is holdableItem:
+				_heldObject.beingHeld = false
+		
+		_heldObject = value
+		
+		if _heldObject != null:
+			if _heldObject is holdableItem:
+				_heldObject.beingHeld = true
+		
+		
+	get:
+		return _heldObject
 
 var originialRotation : Basis
 var originalOffset : Vector3
@@ -123,7 +146,6 @@ func getClosestItem():
 			closestDistance = distance
 			closestItem = item
 			
-			
 	
 	if !holdPressed and is_multiplayer_authority():
 		
@@ -172,7 +194,6 @@ func handleHeldItem(delta):
 	
 	heldObject.angular_velocity += torque * delta
 	
-	pass
 
 
 @export var linear_spring_stiffness: float = 1200.0
